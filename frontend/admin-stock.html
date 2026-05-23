@@ -388,7 +388,7 @@ window.history.back();
 
 async function loadProducts(){
 
-    const response = await fetch("http://localhost:3000/products");
+    const response = await fetch("https://vyshnavi-glow-beauty.onrender.com/products");
 
     const products = await response.json();
 
@@ -442,7 +442,7 @@ async function loadProducts(){
 
 async function addStock(id){
 
-    const response = await fetch(`http://localhost:3000/add-stock/${id}`,{
+    const response = await fetch(`https://vyshnavi-glow-beauty.onrender.com/add-stock/${id}`,{
 
         method:"PUT"
 
@@ -460,7 +460,7 @@ async function addStock(id){
 
 async function removeStock(id){
 
-    const response = await fetch(`http://localhost:3000/remove-stock/${id}`,{
+    const response = await fetch(`https://vyshnavi-glow-beauty.onrender.com/remove-stock/${id}`,{
 
         method:"PUT"
 

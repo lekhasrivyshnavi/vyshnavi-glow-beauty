@@ -337,7 +337,7 @@ localStorage.getItem("loggedUser");
 async function loadAddresses(){
 
     const response = await fetch(
-    `http://localhost:3000/addresses/${loggedUser}`
+    `https://vyshnavi-glow-beauty.onrender.com/addresses/${loggedUser}`
     );
 
     const addresses = await response.json();
@@ -412,7 +412,7 @@ async function placeOrder(){
     for(let item of cart){
 
     await fetch(
-    "http://localhost:3000/place-order",
+    "https://vyshnavi-glow-beauty.onrender.com/place-order",
     {
 
         method:"POST",

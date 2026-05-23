@@ -553,7 +553,7 @@ async function saveProfile(){
     document.getElementById("location").value;
 
     const response = await fetch(
-    `http://localhost:3000/update-profile/${loggedUser}`,
+    `https://vyshnavi-glow-beauty.onrender.com/update-profile/${loggedUser}`,
     {
 
         method:"PUT",
@@ -590,7 +590,7 @@ function logout(){
 async function loadProfile(){
 
     const response = await fetch(
-    `http://localhost:3000/profile/${loggedUser}`
+    `https://vyshnavi-glow-beauty.onrender.com/profile/${loggedUser}`
     );
 
     const user = await response.json();

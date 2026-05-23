@@ -466,17 +466,7 @@ document.getElementById("addressForm").style.display = "none";
 }
 
 </script>
-<script>
 
-/* DELETE ADDRESS */
-
-function deleteAddress(button){
-
-button.parentElement.remove();
-
-}
-
-</script>
 <script>
 
 const loggedUser =
@@ -486,7 +476,7 @@ console.log(loggedUser);
 async function loadAddresses(){
 
     const response = await fetch(
-    `http://localhost:3000/addresses/${loggedUser}`
+    `https://vyshnavi-glow-beauty.onrender.com/addresses/${loggedUser}`
     );
 
     const addresses = await response.json();
@@ -533,7 +523,7 @@ async function loadAddresses(){
 async function deleteAddress(id){
 
     await fetch(
-    `http://localhost:3000/delete-address/${id}`,
+    `https://vyshnavi-glow-beauty.onrender.com/delete-address/${id}`,
     {
         method:"DELETE"
     });
@@ -559,7 +549,7 @@ async function saveAddress(){
     document.getElementById("fulladdress").value;
 
     await fetch(
-    "http://localhost:3000/add-address",
+    "https://vyshnavi-glow-beauty.onrender.com/add-address",
     {
 
         method:"POST",

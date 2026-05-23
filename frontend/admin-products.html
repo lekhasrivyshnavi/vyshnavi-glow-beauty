@@ -371,7 +371,7 @@ Add Product
 async function deleteProduct(id){
 
     let response = await fetch(
-    `http://localhost:3000/delete-product/${id}`,
+    `https://vyshnavi-glow-beauty.onrender.com/delete-product/${id}`,
 
     {
         method:"DELETE"
@@ -385,56 +385,12 @@ async function deleteProduct(id){
 }
 </script>
 
-<script>
 
-fetch("http://localhost:3000/products")
-
-.then(response => response.json())
-
-.then(data => {
-
-    let table = document.getElementById("productTable");
-
-    table.innerHTML = "";
-
-    data.forEach(product => {
-
-        table.innerHTML += `
-
-        <tr>
-
-            <td>${product.brand}</td>
-
-            <td>${product.product_name}</td>
-
-            <td>₹${product.price}</td>
-
-            <td>${product.stock}</td>
-
-            <td>
-                <img src="${product.image}" width="70">
-            </td>
-            <td>
-            <button onclick="deleteProduct(${product.id})">
-            Delete
-            </button>
-            </td>
-
-        </tr>
-
-        `;
-    });
-
-})
-
-.catch(error => console.log(error));
-
-</script>
 <script>
 
 async function loadProducts(){
 
-    let response = await fetch("http://localhost:3000/products");
+    let response = await fetch("https://vyshnavi-glow-beauty.onrender.com/products");
 
     let data = await response.json();
 
@@ -491,7 +447,7 @@ async function addProduct(){
 
     let image = document.getElementById("pimage").value;
 
-    await fetch("http://localhost:3000/add-product",{
+    await fetch("https://vyshnavi-glow-beauty.onrender.com/add-product",{
 
         method:"POST",
 

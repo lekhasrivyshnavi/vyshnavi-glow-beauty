@@ -130,7 +130,7 @@ document.getElementById("loginForm")
     document.querySelector("[name='password']").value;
 
     const response = await fetch(
-    "http://localhost:3000/login",
+    "https://vyshnavi-glow-beauty.onrender.com/login",
 
     {
         method:"POST",
@@ -148,6 +148,11 @@ document.getElementById("loginForm")
     const data = await response.json();
 
     if(data.success){
+        localStorage.setItem("loggedUser", username);
+
+        if(data.role === "admin"){
+            localStorage.setItem("adminUser", username);
+        }
 
         window.location.href =
         data.redirect;

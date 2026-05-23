@@ -403,7 +403,7 @@ Logout
 
 async function loadUsers(){
 
-    const response = await fetch("http://localhost:3000/users");
+    const response = await fetch("https://vyshnavi-glow-beauty.onrender.com/users");
 
     const users = await response.json();
 
@@ -442,7 +442,7 @@ async function deleteUser(id){
     if(confirm("Remove this user?")){
 
         const response = await fetch(
-        `http://localhost:3000/delete-user/${id}`,
+        `https://vyshnavi-glow-beauty.onrender.com/delete-user/${id}`,
         {
             method:"DELETE"
         });

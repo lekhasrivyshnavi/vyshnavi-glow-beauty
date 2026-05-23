@@ -178,7 +178,7 @@ localStorage.getItem("loggedUser");
 async function loadOrders(){
 
     const response = await fetch(
-    `http://localhost:3000/orders/${loggedUser}`
+    `https://vyshnavi-glow-beauty.onrender.com/orders/${loggedUser}`
     );
 
     const orders = await response.json();

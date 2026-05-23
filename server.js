@@ -892,6 +892,8 @@ app.post("/create-admin",(req,res)=>{
         email,
         password
     } = req.body;
+    const hashedPassword =
+    await bcrypt.hash(password,10);
 
     const sql = `
     INSERT INTO admins
@@ -904,7 +906,7 @@ app.post("/create-admin",(req,res)=>{
     [
         username,
         email,
-        password
+        hashedPassword
     ],
 
     (err,result)=>{
