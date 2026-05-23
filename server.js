@@ -465,34 +465,32 @@ app.post("/add-address",(req,res)=>{
 
     const sql = `
     INSERT INTO addresses
-    (id,username,city,name,address_line,pincode)
-    VALUES (NULL,?,?,?,?,?)
+    (username,city,name,address_line,pincode)
+    VALUES (?,?,?,?,?)
     `;
 
     db.query(
-    sql,
-    [username,city,name,address_line,pincode],
+        sql,
+        [
+            username,
+            city,
+            name,
+            address_line,
+            pincode
+        ],
+        (err,result)=>{
 
-    (err,result)=>{
-
-        if(err){
-
-            console.log(err);
+            if(err){
+                console.log(err);
+                res.send("Address failed");
+            }else{
+                res.send("Address added");
+            }
 
         }
-
-        else{
-
-            res.json({
-                message:"Address Added"
-            });
-
-        }
-
-    });
+    );
 
 });
-
 
 
 // DELETE ADDRESS
