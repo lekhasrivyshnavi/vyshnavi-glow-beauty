@@ -968,6 +968,43 @@ app.get("/create-users-table",(req,res)=>{
 
 });
 
+
+app.get("/create-admin-user", async(req,res)=>{
+
+    const hashedPassword =
+    await bcrypt.hash("admin123",10);
+
+    const sql = `
+    INSERT INTO users
+    (username,password,role)
+    VALUES (?,?,?)
+    `;
+
+    db.query(
+    sql,
+    ["admin",hashedPassword,"admin"],
+
+    (err,result)=>{
+
+        if(err){
+
+            console.log(err);
+
+            res.send(err);
+
+        }
+
+        else{
+
+            res.send("Admin user created");
+
+        }
+
+    });
+
+});
+
+
 // SERVER
 
 const PORT = process.env.PORT || 3000;
