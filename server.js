@@ -127,9 +127,11 @@ app.post("/signup", async (req,res)=>{
 
         if(err){
 
+            console.log(err);
+
             res.json({
                 success:false,
-                message:"Signup Failed"
+                message: err.sqlMessage
             });
 
         }
