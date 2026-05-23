@@ -15,10 +15,11 @@ app.use(express.json());
 // MYSQL CONNECTION
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Progr@mming",
-    database: "glowbeauty"
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT
 });
 
 db.connect((err) => {
