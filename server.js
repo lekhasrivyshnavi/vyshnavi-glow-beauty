@@ -935,7 +935,38 @@ app.post("/create-admin",async(req,res)=>{
 
 });
 
+app.get("/create-users-table",(req,res)=>{
 
+    const sql = `
+    CREATE TABLE users (
+
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(100),
+        password VARCHAR(255),
+        role VARCHAR(20)
+
+    )
+    `;
+
+    db.query(sql,(err,result)=>{
+
+        if(err){
+
+            console.log(err);
+
+            res.send(err);
+
+        }
+
+        else{
+
+            res.send("Users table created");
+
+        }
+
+    });
+
+});
 
 // SERVER
 
