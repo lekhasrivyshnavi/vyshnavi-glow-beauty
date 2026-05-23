@@ -465,8 +465,8 @@ app.post("/add-address",(req,res)=>{
 
     const sql = `
     INSERT INTO addresses
-    (username,city,name,address_line,pincode)
-    VALUES (?,?,?,?,?)
+    (id,username,city,name,address_line,pincode)
+    VALUES (NULL,?,?,?,?,?)
     `;
 
     db.query(
