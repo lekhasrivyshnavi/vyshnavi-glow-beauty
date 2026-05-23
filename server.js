@@ -885,7 +885,7 @@ app.put("/update-admin", async(req,res)=>{
 
 // CREATE ADMIN
 
-app.post("/create-admin",(req,res)=>{
+app.post("/create-admin",async(req,res)=>{
 
     const {
         username,
