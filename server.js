@@ -24,6 +24,9 @@ db.connect((err) => {
         console.log("Database Connected");
     }
 });
+app.get("/", (req, res) => {
+    res.send("Backend is running successfully");
+});
 
 // LOGIN API
 
