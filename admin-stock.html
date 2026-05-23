@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Stock Management</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#fff5f8;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:white;
+
+    padding:20px 50px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#ff2d75;
+}
+
+.back-btn{
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+
+    color:#ff2d75;
+}
+.menu-left{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.back-icon{
+
+    width:35px;
+    height:35px;
+
+    background:white;
+
+    color:#e60073;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+
+}
+/* PAGE */
+
+.stock-page{
+    padding:40px;
+}
+
+.stock-title{
+    color:#ff2d75;
+
+    font-size:43px;
+
+    margin-left:250px;
+    margin-top:-10px;
+    width:70%;
+}
+
+/* TABLE */
+
+.stock-table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:20px;
+    margin-left: 300px;
+    margin-top: 20px;
+    width: 65%;
+    transform: scale(0.95);
+    transform-origin: top left;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.stock-table th{
+    background:#ff2d75;
+
+    color:white;
+
+    padding:18px;
+
+    font-size:18px;
+}
+
+.stock-table td{
+    padding:18px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+}
+
+.stock-table input{
+    width:80px;
+
+    padding:10px;
+
+    text-align:center;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+}
+
+/* BUTTONS */
+
+.action-btn{
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+.add-btn{
+    background:#28a745;
+}
+
+.remove-btn{
+    background:#dc3545;
+}
+
+/* BRAND */
+
+.brand{
+    font-weight:bold;
+
+    color:#ff2d75;
+}
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+
+    background:linear-gradient(180deg,#ff0080,#ff4da6);
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    padding:40px 28px;
+}
+
+.sidebar h2{
+    color:white;
+    font-size:36px;
+    margin-bottom:55px;
+    font-weight:bold;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:28px 0;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    transform:translateX(5px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="back-btn"
+    onclick="goBack()">
+
+        <i class="fa fa-arrow-left"></i>
+
+    </div>
+
+    <div class="logo">
+        GlowBeauty
+    </div>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>GlowBeauty</h2>
+
+<ul>
+
+<li>
+<a href="admin-profile.html">
+<i class="fa-solid fa-house"></i>
+Profile
+</a>
+</li>
+
+<li>
+<a href="admin.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="admin-products.html">
+<i class="fa-solid fa-box"></i>
+Products
+</a>
+</li>
+
+<li>
+<a href="admin-orders.html">
+<i class="fa-solid fa-cart-shopping"></i>
+Orders
+</a>
+</li>
+
+<li>
+<a href="admin-users.html">
+<i class="fa-solid fa-users"></i>
+Users
+</a>
+</li>
+
+<li>
+<a href="admin-analytics.html">
+<i class="fa-solid fa-chart-line"></i>
+Analytics
+</a>
+</li>
+
+<li>
+    <a href="index.html">
+
+        <div class="menu-left">
+
+            <i class="fa fa-arrow-left back-icon"></i>
+
+            <i class="fa fa-home"></i>
+
+            Stock
+
+        </div>
+
+    </a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+<!-- PAGE -->
+
+<div class="stock-page">
+
+<h1 class="stock-title">
+Product Stock Management
+</h1>
+
+<table class="stock-table">
+
+<tr>
+<th>Brand</th>
+<th>Product</th>
+<th>Available Stock</th>
+<th>Add</th>
+<th>Remove</th>
+</tr>
+
+<tbody id="stockTableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+function goBack(){
+
+window.history.back();
+
+}
+
+</script>
+<script>
+
+async function loadProducts(){
+
+    const response = await fetch("http://localhost:3000/products");
+
+    const products = await response.json();
+
+    const tableBody = document.getElementById("stockTableBody");
+
+    tableBody.innerHTML = "";
+
+    products.forEach((product) => {
+
+        tableBody.innerHTML += `
+
+        <tr>
+
+        <td>${product.brand}</td>
+
+        <td>${product.product_name}</td>
+
+        <td>
+
+        <input type="text"
+        value="${product.stock}"
+        readonly>
+
+        </td>
+
+        <td>
+
+        <button onclick="addStock(${product.id})">
+        + Add
+        </button>
+
+        </td>
+
+        <td>
+
+        <button onclick="removeStock(${product.id})">
+        - Remove
+        </button>
+
+        </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+
+async function addStock(id){
+
+    const response = await fetch(`http://localhost:3000/add-stock/${id}`,{
+
+        method:"PUT"
+
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadProducts();
+
+}
+
+
+
+async function removeStock(id){
+
+    const response = await fetch(`http://localhost:3000/remove-stock/${id}`,{
+
+        method:"PUT"
+
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadProducts();
+
+}
+loadProducts();
+</script>
+
+</body>
+</html>

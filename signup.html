@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlowBeauty Signup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="signup-body">
+
+<div class="signup-box">
+
+  <h1>Create Account ✨</h1>
+
+  <input type="text"
+         id="signupUsername"
+         placeholder="Enter Username">
+
+  <input type="password"
+         id="signupPassword"
+         placeholder="Enter Password">
+
+  <button onclick="signupUser()">
+    Sign Up
+  </button>
+
+  <p>
+    Already have account?
+    <a href="index.html">Login</a>
+  </p>
+
+</div>
+
+<script>
+
+async function signupUser(){
+
+  const username =
+  document.getElementById("signupUsername").value;
+
+  const password =
+  document.getElementById("signupPassword").value;
+
+  const response = await fetch("http://localhost:3000/signup",{
+
+    method:"POST",
+
+    headers:{
+      "Content-Type":"application/json"
+    },
+
+    body:JSON.stringify({
+      username,
+      password
+    })
+
+  });
+
+  const data = await response.json();
+
+  alert(data.message);
+
+  if(data.success){
+
+    window.location.href = "index.html";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

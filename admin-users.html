@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Admin Users</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff7fb;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+
+    background:linear-gradient(180deg,#ff0080,#ff4da6);
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    padding:40px 28px;
+}
+
+.sidebar h2{
+    color:white;
+    font-size:36px;
+    margin-bottom:55px;
+    font-weight:bold;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:28px 0;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    transform:translateX(5px);
+}
+
+/* MAIN */
+
+.main{
+    margin-left:260px;
+    padding:35px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    color:#c2185b;
+    font-size:52px;
+    font-weight:bold;
+}
+
+.admin-profile{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    background:#d81b60;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:24px;
+}
+
+/* USER STATS */
+
+.user-stats{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+    margin-bottom:35px;
+}
+
+.stat-card{
+    background:white;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+.stat-card i{
+    font-size:28px;
+    color:#ff2f7b;
+    margin-bottom:15px;
+}
+
+.stat-card h2{
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.stat-card p{
+    color:gray;
+    font-size:18px;
+}
+
+/* USER TABLE */
+
+.user-table{
+    background:white;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+.user-table h2{
+    color:#c2185b;
+    font-size:42px;
+    margin-bottom:22px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#ff007f;
+    color:white;
+
+    padding:16px;
+
+    font-size:18px;
+}
+
+table td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.active{
+    color:green;
+    font-weight:bold;
+}
+
+.inactive{
+    color:#d81b60;
+    font-weight:bold;
+}
+.menu-left{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.back-icon{
+
+    width:35px;
+    height:35px;
+
+    background:white;
+
+    color:#e60073;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.main{
+    margin-left:0;
+}
+
+.user-stats{
+    grid-template-columns:1fr;
+}
+
+.topbar h1{
+    font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>GlowBeauty</h2>
+
+<ul>
+
+<li>
+<a href="admin-profile.html">
+<i class="fa-solid fa-house"></i>
+Profile
+</a>
+</li>
+
+<li>
+<a href="admin.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="admin-products.html">
+<i class="fa-solid fa-box"></i>
+Products
+</a>
+</li>
+
+<li>
+<a href="admin-orders.html">
+<i class="fa-solid fa-cart-shopping"></i>
+Orders
+</a>
+</li>
+
+<li>
+    <a href="index.html">
+
+        <div class="menu-left">
+
+            <i class="fa fa-arrow-left back-icon"></i>
+
+            <i class="fa fa-home"></i>
+
+            Users
+
+        </div>
+
+    </a>
+</li>
+
+<li>
+<a href="admin-analytics.html">
+<i class="fa-solid fa-chart-line"></i>
+Analytics
+</a>
+</li>
+
+<li>
+<a href="admin-stock.html">
+<i class="fa fa-boxes-stacked"></i>
+Stock
+</a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<h1>Users</h1>
+
+<div class="admin-profile">
+<i class="fa-solid fa-user"></i>
+</div>
+
+</div>
+
+<!-- USER STATS -->
+
+<div class="user-stats">
+
+<div class="stat-card">
+<i class="fa-solid fa-users"></i>
+<h2>80</h2>
+<p>Total Users</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-user-check"></i>
+<h2>68</h2>
+<p>Active Users</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-user-plus"></i>
+<h2>12</h2>
+<p>New Users</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-user-xmark"></i>
+<h2>5</h2>
+<p>Inactive Users</p>
+</div>
+
+</div>
+
+<!-- USER TABLE -->
+
+<div class="user-table">
+
+<h2>User Details</h2>
+
+<table>
+
+<tr>
+<th>User ID</th>
+<th>Name</th>
+<th>Role</th>
+<th>Action</th>
+</tr>
+
+<tbody id="userTableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+async function loadUsers(){
+
+    const response = await fetch("http://localhost:3000/users");
+
+    const users = await response.json();
+
+    const tableBody = document.getElementById("userTableBody");
+
+    tableBody.innerHTML = "";
+
+    users.forEach((user) => {
+
+        tableBody.innerHTML += `
+
+        <tr>
+
+        <td>${user.id}</td>
+
+        <td>${user.username}</td>
+
+        <td>${user.role}</td>
+
+        <td>
+        <button onclick="deleteUser(${user.id})">
+        Remove
+        </button>
+        </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+async function deleteUser(id){
+
+    if(confirm("Remove this user?")){
+
+        const response = await fetch(
+        `http://localhost:3000/delete-user/${id}`,
+        {
+            method:"DELETE"
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        loadUsers();
+
+    }
+
+}
+
+loadUsers();
+
+</script>
+</body>
+</html>

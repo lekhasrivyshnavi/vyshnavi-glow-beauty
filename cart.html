@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="close-cart" onclick="window.location.href='index.html'">
+    ✕
+</div>
+<div class="cart-container">
+
+    <h1 class="cart-title">Your Cart</h1>
+
+    <div id="cartItems"></div>
+
+    <div class="total-box">
+        <h2 id="cartTotal"></h2>
+        <button onclick="goToCheckout()">
+         Checkout
+        </button>
+    </div>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let html = "";
+let total = 0;
+
+cart.forEach((item, index) => {
+
+    total += Number(item.price.replace("₹",""));
+
+    html += `
+
+  <div class="cart-item">
+
+      <img src="${item.image}">
+
+      <div class="cart-details">
+          <h3>${item.name}</h3>
+          <p>${item.price}</p>
+      </div>
+
+      <button class="remove-btn"
+      onclick="removeItem(${index})">
+      X
+      </button>
+
+  </div>
+
+`;
+});
+
+document.getElementById("cartItems").innerHTML = html;
+
+document.getElementById("cartTotal").innerText =
+"Total: ₹" + total;
+
+function goToCheckout(){
+
+    localStorage.setItem("cartTotal", total);
+
+    window.location.href = "checkout.html";
+
+}
+</script>
+<script>
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    localStorage.setItem("cart",
+    JSON.stringify(cart));
+
+    location.reload();
+
+}
+</script>
+</body>
+</html>

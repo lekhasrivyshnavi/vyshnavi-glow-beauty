@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>GlowBeauty</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<header class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        GlowBeauty
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text" placeholder="Search products...">
+        <button>
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+
+    <!-- Right Side -->
+    <div class="nav-right">
+
+        <div class="nav-right">
+
+    <!-- Wishlist -->
+    <div class="icon-box">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+    <!-- Cart -->
+    <div class="icon-box">
+      <a href="cart.html">
+        <i class="fa-solid fa-bag-shopping"></i>
+      </a>
+    </div>
+
+    <!-- Sign In -->
+    <div id="userSection">
+
+    <button class="signin-btn" id="openLogin">
+     Sign In
+    </button>
+
+</div>
+
+</div>
+
+    </div>
+
+</header>
+<div class="login-modal" id="loginModal">
+
+    <div class="login-box">
+
+        <span class="close-btn" id="closeLogin">&times;</span>
+
+        <h2>Welcome Back ✨</h2>
+
+        <p>Login to continue shopping</p>
+
+        <form onsubmit="return false;">
+
+            <input type="text"
+                   id="username"
+                   placeholder="Enter Username"
+                   required>
+
+            <input type="password"
+                   id="password"
+                   placeholder="Enter Password"
+                   required>
+
+            <button type="button" onclick="loginUser()">
+               Login
+            </button>
+            <p class="signup-text">
+              New User?
+              <a href="signup.html">Create Account</a>
+            </p>
+
+</form>
+
+    </div>
+
+</div>
+
+<script>
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+    }, 2500);
+
+});
+</script>
+</head>
+<body>
+
+<div id="splash">
+  <h1>GlowBeauty</h1>
+</div>
+
+<div id="main-content">
+    <!-- Your whole website code here -->
+
+<!-- PREMIUM SLIDER -->
+
+<section class="slider">
+
+  <!-- SLIDE 1 -->
+
+  <div class="slide active">
+
+    <div class="slide-text">
+      <span class="offer-tag">LIMITED TIME</span>
+      <h1>Mother's Day Sale 💖</h1>
+      <p>Flat 40% OFF on skincare & makeup gifts</p>
+      <button class="shop-btn">Shop Now</button>
+    </div>
+
+    <div class="slide-img">
+      <img src="https://media.istockphoto.com/id/535628335/photo/young-mother-applying-lipstick-on-her-daughter.jpg?s=612x612&w=0&k=20&c=hvSR905vxaANhkk4CFbpzh9w5gZcv1DlkDg8zZ1Nbw0=">
+    </div>
+
+  </div>
+
+  <!-- SLIDE 2 -->
+
+  <div class="slide">
+
+    <div class="slide-text">
+      <span class="offer-tag">NEW ARRIVAL</span>
+      <h1>Hair Straightener ✨</h1>
+      <p>Salon finish styling at home</p>
+      <button class="shop-btn">Explore</button>
+    </div>
+
+    <div class="slide-img">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/de/de-personal-care/compressed-images/Personalcare-556-OverviewPage-CordFree-Essence-module-fahrenheit.jpg?$responsive$&cropPathE=mobile&fit=stretch,1&fmt=pjpeg&wid=640">
+    </div>
+
+  </div>
+
+  <!-- SLIDE 3 -->
+
+  <div class="slide">
+
+    <div class="slide-text">
+      <span class="offer-tag">FRESH CARE</span>
+      <h1>New Body Wash 🫧</h1>
+      <p>Feel fresh & glowing all day</p>
+      <button class="shop-btn">Buy Now</button>
+    </div>
+
+    <div class="slide-img">
+      <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/body-wash/p/q/s/-original-imahbswcqkgauhxp.jpeg?q=90">
+    </div>
+
+  </div>
+
+  <!-- ARROWS -->
+
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+
+  <!-- DOTS -->
+
+  <div class="dots">
+    <span class="dot active-dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+
+</section>
+
+<section class="stores">
+
+<h1>SUMMER STORES</h1>
+
+<div class="summer-circles">
+
+  <div class="summer-circle" onclick="showSummerProducts('glow')">
+    GLOW PICKS
+  </div>
+
+  <div class="summer-circle" onclick="showSummerProducts('genz')">
+    GENZ BEAUTY
+  </div>
+
+  <div class="summer-circle" onclick="showSummerProducts('luxury')">
+    LUXURY CARE
+  </div>
+
+  <div class="summer-circle" onclick="showSummerProducts('makeup')">
+    MAKEUP HUB
+  </div>
+
+</div>
+
+<div id="summerProducts" class="summer-products"></div>
+
+</section>
+
+<!-- IMAGE CATEGORIES -->
+
+<section class="categories">
+
+  <div class="cat-header">
+    <h2>Top Categories</h2> 
+    <span>View All →</span>
+  </div>
+
+  <div class="cat-grid">
+
+    <div class="cat-card" onclick="window.location.href='makeup.html'">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5S3PFXuBB8Ph0qxM7UDwy8vp6z9EvuzgEkAQ0xWeBPdHfc8bjdatFa7oK&s=10">
+      <h3>Makeup</h3>
+    </div>
+
+    <div class="cat-card" onclick="window.location.href='skincare.html'">
+      <img src="https://e-fillers.com/storage/uploads/blogs/5-signs-its-time-for-a-skincare-update-when-to-consider-aesthetic-treatments/1725549249841_rendered-photo-beautiful-model-applying-skin-care-products-flat-illustration.webp">
+      <h3>Skincare</h3>
+    </div>
+
+    <div class="cat-card" onclick="window.location.href='haircare.html'">
+      <img src="https://images.pexels.com/photos/8467970/pexels-photo-8467970.jpeg">
+      <h3>Haircare</h3>
+    </div>
+    
+    <div class="cat-card" onclick="window.location.href='bodycare.html'">
+      <img src="https://thumbs.dreamstime.com/b/beauty-woman-apply-sun-cream-tanned-back-skin-body-care-protection-portrait-female-bikini-applying-moisturizing-152111410.jpg">
+      <h3>Bodycare</h3>
+    </div>
+
+    <div class="cat-card" onclick="window.location.href='personalcare.html'">
+      <img src="https://photos.peopleimages.com/picture/202304/2690935-happy-woman-beauty-or-face-massage-with-roller-facial-product-for-healthy-skincare-on-studio-background.-relaxing-grooming-treatment-or-girl-model-smiling-with-dermatology-cosmetics-or-wellness--fit_400_400.jpg">
+      <h3>Personalcare</h3>
+    </div>
+
+    <div class="cat-card" onclick="window.location.href='fragrance.html'">
+      <img src="https://t4.ftcdn.net/jpg/10/70/92/75/360_F_1070927570_TvAC3YNziVALH5d9R6uKsQLaNY0ChGdG.jpg">
+      <h3>Fragrance</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CATEGORY PRODUCTS -->
+
+<section class="products">
+  <div id="categoryProducts" class="grid"></div>
+</section>
+
+<section class="pink-sale">
+
+  <h1>SHOP. SAVE. GLOW.</h1>
+
+  <div class="pink-grid">
+
+    <div class="pink-card" onclick="showBrandProducts('huda')">
+      <img src="https://www.cultbeauty.com/images?url=https://blogscdn.thehut.net/app/uploads/sites/1778/2022/09/Small-2025-10-16_JG_Huda-BOTM_Shot01_Blush-NPD_01_CROP_1761839620.jpg&auto=avif&width=570&fit=crop">
+      <h3>Huda Beauty</h3>
+      <p>Up To 20% OFF</p>
+    </div>
+
+    <div class="pink-card" onclick="showBrandProducts('ordinary')">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtcx8vcTlDkgN6MZy7ydAbwpI7zvDoFl_LwmjrrA5OzOaaWGZOFKP72U&s=10">
+      <h3>The Ordinary</h3>
+      <p>Flat 20% OFF</p>
+    </div>
+
+    <div class="pink-card" onclick="showBrandProducts('derma')">
+      <img src="https://highongloss.com/wp-content/uploads/2020/07/DSC_0001.jpg">
+      <h3>Derma Co</h3>
+      <p>Extra 10% OFF</p>
+    </div>
+
+    <div class="pink-card" onclick="showBrandProducts('laneige')">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlB31Z8DjkeFl-BHOOXfm9XO-zPQrWVjW9eK1rWLZU37uGZfII2eHbo2hd&s=10">
+      <h3>Laneige</h3>
+      <p>Free Gifts</p>
+    </div>
+
+    <div class="pink-card" onclick="showBrandProducts('joseon')">
+      <img src="https://www.aigoo.co.uk/cdn/shop/articles/boj_sunscreen_trio.webp?v=1696409340">
+      <h3>Beauty of Joseon</h3>
+      <p>Flat 15% OFF</p>
+    </div>
+
+    <div class="pink-card" onclick="showBrandProducts('clinique')">
+      <img src="https://m.clinique.com/media/export/cms/editorial_hub/article/morning_skincare_routine/01.jpg">
+      <h3>Clinique</h3>
+      <p>Luxury Care</p>
+    </div>
+
+  </div>
+
+</section>
+<!-- BRAND PRODUCTS -->
+
+<section class="brand-products-section">
+
+    <div id="brandProducts" class="brand-products-grid"></div>
+
+</section>
+<!-- ================================= -->
+<!-- BEAUTY OFFERS SECTION -->
+<!-- ================================= -->
+
+<section class="beauty-offers">
+
+    <h1>Exclusive Beauty Deals</h1>
+
+    <div class="offers-container">
+
+        <div class="offer-card">
+            <h2>10% OFF</h2>
+            <p>On all makeup products</p>
+            <span>CODE: GLOW10</span>
+        </div>
+
+        <div class="offer-card">
+            <h2>₹150 OFF</h2>
+            <p>For orders above ₹999</p>
+            <span>CODE: BEAUTY150</span>
+        </div>
+
+        <div class="offer-card">
+            <h2>FREE GIFT</h2>
+            <p>On skincare combos</p>
+            <span>Limited Offer</span>
+        </div>
+
+        <div class="offer-card">
+            <h2>BUY 1 GET 1</h2>
+            <p>Selected lipstick shades</p>
+            <span>Hot Deal</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURED PRODUCTS -->
+
+<section class="products">
+
+  <h2>Featured Products</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,dpr-2,q-40/static/img/product/353001/maybelline-superstay-vinyl-ink-liquid-lipstick-irresistible-4-2ml-high-shine-that-lasts-for-16-hrs_1_display_1683190510_a64bd98e.jpg">
+      <h3>Lipstick</h3>
+      <h4>Maybelline</h4>
+      <p>₹299</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/foundation/p/s/8/-original-imah4fdb8cfvva7v.jpeg?q=90">
+      <h3>Foundation</h3>
+      <h4>Lakme</h4>
+      <p>₹699</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/a/0/a0959c571249343326-z_1.jpg">
+      <h3>Mascara</h3>
+      <h4>L'Oréal</h4>
+      <p>₹499</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,dpr-2/static/img/product/296379/swiss-beauty-skin-brightenign-day-cream-50-g-21_2_display_1721718838_a440d538.jpg">
+      <h3>Face Cream</h3>
+      <h4>Swiss Beauty</h4>
+      <p>₹399</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images-static.nykaa.com/media/catalog/product/a/c/ace0642LOREA00000356_1.jpg">
+      <h3>Shampoo</h3>
+      <h4>L'Oréal</h4>
+      <p>₹449</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images-static.nykaa.com/media/catalog/product/e/c/ec0b4f28901012185032_2.jpg?tr=w-500">
+      <h3>Sunscreen</h3>
+      <h4>Neutrogena</h4>
+      <p>₹349</p>
+      <button>Add to Cart</button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SUMMER SALE -->
+
+<section class="summer-sale">
+
+  <div class="summer-text">
+
+    <span class="summer-tag">COMING SOON</span>
+
+    <h1>Pink Summer Sale 🌸</h1>
+
+    <p>Get ready for exciting beauty deals this summer</p>
+
+    <button>Notify Me</button>
+
+  </div>
+
+  <div class="summer-img">
+
+    <img src="https://images-static.nykaa.com/contentmedia/scms-assets/uploads/2023/05/Heres-all-things-exciting-at-Nykaas-Pink-Summer-Sale_bb339.jpg">
+
+  </div>
+
+</section>
+<!-- ================================= -->
+<!-- FOOTER SECTION -->
+<!-- ================================= -->
+
+<footer class="beauty-footer">
+
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <h2>Glow<span>Beauty</span></h2>
+
+            <p>
+                Discover premium beauty products, skincare essentials,
+                and makeup collections designed to make you glow with confidence.
+            </p>
+
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Categories</a>
+            <a href="#">Offers</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="footer-links">
+            <h3>Customer Care</h3>
+
+            <a href="#">My Account</a>
+            <a href="#">Track Order</a>
+            <a href="#">Wishlist</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h3>Beauty Updates</h3>
+
+            <p>
+                Subscribe to get exclusive beauty offers and new arrivals.
+            </p>
+
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+        <p>©️ 2026 GlowBeauty. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- SLIDER SCRIPT -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    let current = 0;
+
+    /* SHOW SLIDE */
+
+    function showSlide(index){
+
+        slides.forEach((slide)=>{
+            slide.classList.remove("active");
+        });
+
+        dots.forEach((dot)=>{
+            dot.classList.remove("active-dot");
+        });
+
+        slides[index].classList.add("active");
+        dots[index].classList.add("active-dot");
+    }
+
+    /* NEXT / PREVIOUS */
+
+    window.changeSlide = function(direction){
+
+        current += direction;
+
+        if(current >= slides.length){
+            current = 0;
+        }
+
+        if(current < 0){
+            current = slides.length - 1;
+        }
+
+        showSlide(current);
+    }
+
+    /* DOT CLICK */
+
+    window.currentSlide = function(index){
+
+        current = index;
+
+        showSlide(current);
+    }
+
+    /* AUTO SLIDE */
+
+    setInterval(function(){
+
+        current++;
+
+        if(current >= slides.length){
+            current = 0;
+        }
+
+        showSlide(current);
+
+    }, 4000);
+
+});
+
+function showSummerProducts(type){
+
+  const data = {
+
+    glow: [
+      ["Glow Serum", "₹499", "https://images-static.nykaa.com/media/catalog/product/9/d/9d71313BEAAR00000003_2.jpg?tr=w-500"],
+      ["Primer", "₹399", "https://images-static.nykaa.com/media/catalog/product/4/5/452b231NYKAC00002297_7.jpg?tr=w-500"],
+      ["Shimmer spray", "₹1150", "https://images-static.nykaa.com/media/catalog/product/5/c/5c9bee781555969196_16.jpg?tr=w-500"]
+    ],
+
+    genz: [
+      ["Lipbalm", "₹299", "https://aqualogica.in/cdn/shop/files/Pink_Sorbet_Plump__Lip_balm.jpg?v=1722338000"],
+      ["Highlighter", "₹349", "https://images-static.nykaa.com/media/catalog/product/f/2/f2fe1958904245709846-az_8.jpg?tr=w-500"],
+      ["Eye shadow palette", "₹419", "https://images-static.nykaa.com/media/catalog/product/2/6/262c5ad8904245710590_6.jpg?tr=w-500"]
+    ],
+
+    luxury: [
+      ["Perfume", "₹16299", "https://splashfragrance.in/wp-content/uploads/2019/06/MISS-DIOR-EAU-DE-PARFUM.jpg"],
+      ["Luxury Bathkit", "₹1588", "https://bryanandcandy.com/cdn/shop/files/Lavender_Vanilla_heartKit_listing_new_01.jpg?v=1774002132"],
+      ["Premimum Gift Set", "₹1399", "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT2zXPGXWZcq5RvKU4OwHw8omhk448NSXQqGZo3mrJVxr7rB5-RpRCljDToLNeyGekGoW7g2KvPqoOEGWVTz2ItQiFU6lkfjJx5Hyxts_lHpD_B4xSaDLmnlw"]
+    ],
+
+    makeup: [
+      ["Concealer", "₹699", "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/mby/mby25926/y/29.jpg"],
+      ["Kajal", "₹499", "https://i.ebayimg.com/images/g/~UEAAOSwDLtlQGBA/s-l1200.jpg"],
+      ["Brushes and Sponge", "₹299", "https://www.gosupps.com/media/catalog/product/cache/25/image/1500x/040ec09b1e35df139433887a97daa66f/7/1/71z8FAwzalL._SL1500_.jpg"]
+    ]
+
+  };
+
+  let html = "";
+
+  data[type].forEach(product => {
+
+    html += `
+      <div class="summer-card">
+        <img src="${product[2]}">
+        <h3>${product[0]}</h3>
+        <p>${product[1]}</p>
+        <button class="cart-btn"
+         onclick="addToCart('${product[0]}','${product[1]}','${product[2]}')">
+
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          Add to Cart
+
+        </button>
+      </div>
+    `;
+  });
+
+  document.getElementById("summerProducts").innerHTML = html;
+}
+function addToCart(name,price,image){
+
+ let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+ cart.push({
+   name:name,
+   price:price,
+   image:image
+ });
+
+ localStorage.setItem("cart",JSON.stringify(cart));
+
+ alert("Product Added To Cart");
+
+}
+</script>
+</div>
+<script>
+
+const openBtn = document.getElementById("openLogin");
+const closeBtn = document.getElementById("closeLogin");
+const modal = document.getElementById("loginModal");
+
+openBtn.onclick = () =>{
+    modal.style.display = "flex";
+}
+
+closeBtn.onclick = () =>{
+    modal.style.display = "none";
+}
+
+window.onclick = (e)=>{
+    if(e.target == modal){
+        modal.style.display = "none";
+    }
+}
+
+</script>
+<script>
+
+async function loginUser() {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await fetch("http://localhost:3000/login", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+
+    });
+
+    const data = await response.json();
+    console.log(data)
+
+    if(data.success){
+
+    localStorage.setItem("loggedUser", username);
+    localStorage.setItem("userRole", data.role);
+
+    window.location.href = data.redirect;
+
+    }
+    else{
+
+        alert(data.message);
+
+    }
+}
+
+</script>
+<script>
+function showBrandProducts(brand){
+
+    const products = {
+
+        huda: [
+
+            ["Lipstick","₹299","https://hips.hearstapps.com/hmg-prod/images/huda-lede-1642007636.jpg?crop=0.8894661644369398xw:1xh;center,top&resize=1200:*"],
+
+            ["Foundation","₹699","https://i.ytimg.com/vi/6UY_hO8CbkU/sddefault.jpg"],
+
+            ["Eyeliner","₹249","https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/huda-beauty/7021921/5/grqUODglsU-6_Product_6291107572321-Huda-Beauty-Life-Liner-Quick-N-Easy-Precision-Liquid-Liner-Mini-0-_b0eeafb9deda8b129980bbd2328273c14a8dfb40_1645511932.png"],
+
+            ["Mascara","₹399","https://m.media-amazon.com/images/I/71IvBtJJT1L._AC_UF1000,1000_QL80_.jpg"],
+
+            ["Compact Powder","₹450","https://images-static.nykaa.com/media/catalog/product/3/2/327ee716294018401858_4.jpg?tr=w-500"],
+
+            ["Blush","₹349","https://images-static.nykaa.com/media/catalog/product/9/e/9e1306a6294018405733_4.jpg?tr=w-500"]
+
+        ],
+
+        ordinary: [
+
+            ["Serum","₹899","https://images-static.nykaa.com/media/catalog/product/8/8/88a48a1THECI00000083_1.jpg"],
+
+            ["Cleanser","₹699","https://images-static.nykaa.com/media/catalog/product/8/8/88a48a1THECI00000075_1.jpg?tr=w-500"],
+
+            ["Moisturizer","₹799","https://m.media-amazon.com/images/I/51igXtdvrYL._AC_UF894,1000_QL80_.jpg"],
+
+            ["Toner","₹499","https://images-static.nykaa.com/media/catalog/product/8/8/88a48a1THECI00000144_1.jpg"],
+
+            ["Eye Serum","₹650","https://images-static.nykaa.com/media/catalog/product/2/f/2f64156769915195712_1.jpg?tr=w-500"],
+
+            ["Body Lotion","₹999","https://images-static.nykaa.com/media/catalog/product/d/a/daea407THECI00000115_1.jpg?tr=w-500"]
+
+        ],
+
+        derma: [
+
+            ["Vitamin C Serum","₹599","https://rukminim2.flixcart.com/image/480/640/xif0q/skin-treatment/5/o/8/30-5-vitamin-c-daily-face-serum-with-ferulic-acid-multivitamin-original-imah7gh5zxszqmxh.jpeg?q=80"],
+
+            ["Sunscreen","₹499","https://thedermaco.com/cdn/shop/files/1080x1080-5.jpg?v=1758286726"],
+
+            ["Face Wash","₹299","https://thedermaco.com/cdn/shop/files/pdp_2_salicylic_fw.jpg?v=1758287053"],
+
+            ["Niacinamide","₹650","https://media6.ppl-media.com/tr:h-750,w-750,c-at_max,dpr-2,q-40/static/img/product/371305/the-derma-co-10-percentage-niacinamide-serum-10-ml-1_1_display_1727181186_d5cde5c3.jpg"],
+
+            ["Moisturizer","₹399","https://images-static.nykaa.com/media/catalog/product/f/2/f23c1f0THEDE00000343_010.jpg?tr=w-500"],
+
+            ["Acne Serum","₹799","https://images-static.nykaa.com/media/catalog/product/c/0/c0010758904417306521_14.jpg?tr=w-500"]
+
+        ],
+
+        laneige: [
+
+            ["Lip Sleeping Mask","₹850","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaExFo6UqNWe_ySYDNSVBUNhTS84VAujhCUaO53mpKJe-J4xSfocANNNg&s=10"],
+
+            ["Water Cream","₹1200","https://m.media-amazon.com/images/I/71bG53f4ZcL._AC_UF350,350_QL80_.jpg"],
+
+            ["Face Mist","₹699","https://int.laneige.com/cdn/shop/files/pdp_mig_2025-02-11-250210_final_INT_cream_skin_cerapeptide_mist_west_05_Thmbnail.jpg?v=1754037657"],
+
+            ["Toner","₹999","https://cdn.shopify.com/s/files/1/0633/1370/7195/files/cream_skin_cerapeptide_refiner_intro_01_pc_ph_251222.jpg"],
+
+            ["Mini Kit","₹1500","https://barefacebeauty.shop/cdn/shop/files/laneige-midnight-minis-set-lip-sleeping-mask-542810_800x.jpg?v=1732512887"],
+
+            ["Lip Balm","₹499","https://m.media-amazon.com/images/I/71kSdADsK0L._AC_UF350,350_QL80_.jpg"]
+
+        ],
+
+        joseon: [
+
+            ["Rice Sunscreen","₹899","https://carenclass.com/cdn/shop/files/Relief_Sun_Banner_02.png?v=1764673906"],
+
+            ["Glow Serum","₹950","https://m.media-amazon.com/images/I/71H-EjthIsL._AC_UF1000,1000_QL80_.jpg"],
+
+            ["Cleanser","₹650","https://m.media-amazon.com/images/I/71B3E33Z2mL._AC_UF1000,1000_QL80_.jpg"],
+
+            ["Essence","₹1100","https://m.media-amazon.com/images/I/61lxCnhW+VL.jpg"],
+
+            ["Cream","₹899","https://images-static.nykaa.com/media/catalog/product/9/d/9d71313BEAAR00000006_4.jpg?tr=w-500"],
+
+            ["Toner","₹750","https://beautyofjoseon.com/cdn/shop/files/green-plum-refreshing-toner-aha-bha-4.webp?v=1770279221"]
+
+        ],
+
+        clinique: [
+
+            ["Moisture Surge","₹1600","https://static.sweetcare.com/img/prd/488/v-638757329348719846/clinique-014419cq-4.webp"],
+
+            ["Face Wash","₹999","https://images-static.nykaa.com/media/catalog/product/9/c/9c4e1b520714240158_5.png?tr=w-500"],
+
+            ["Lipstick","₹1400","https://images-static.nykaa.com/media/catalog/product/4/1/4173e15CLINI00000216_11.png?tr=w-500"],
+
+            ["Serum","₹2100","https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/000000000494516432/cJlLrL-aBpC-000000000494516432_9.png"],
+
+            ["Foundation","₹1800","https://images-static.nykaa.com/media/catalog/product/e/0/e0cc3b7CLINI00000351_GS.jpg?tr=w-500"],
+
+            ["Perfume","₹2500","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfarkXbH27VIntO95CyqOEvrIO4QYbKJQHXcJTkJgQwo9bcZ_wIoVBdkJe&s=10"]
+
+        ]
+
+    };
+
+    let html = "";
+
+    products[brand].forEach(product => {
+
+        html += `
+
+        <div class="brand-card">
+
+            <img src="${product[2]}">
+
+            <h3>${product[0]}</h3>
+
+            <p>${product[1]}</p>
+
+            <button class="brand-btn"
+             onclick="addToCart('${product[0]}','${product[1]}','${product[2]}')">
+             Add to Cart
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById("brandProducts").innerHTML = html;
+
+}
+function addToCart(name,price,image){
+
+ let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+ cart.push({
+   name:name,
+   price:price,
+   image:image
+ });
+
+ localStorage.setItem("cart", JSON.stringify(cart));
+
+ alert("Product Added To Cart");
+
+}
+</script>
+<script>
+
+// GET USER
+let loggedUser = localStorage.getItem("loggedUser");
+
+let userRole = localStorage.getItem("userRole");
+
+// SHOW NAVBAR ACCOUNT
+if(loggedUser){
+
+    // ADMIN
+    console.log(userRole);
+    if(userRole === "admin"){
+
+        document.getElementById("userSection").innerHTML = `
+
+        <div class="admin-profile"
+        onclick="window.location.href='admin.html'">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <span>${loggedUser}</span>
+
+        </div>
+
+        `;
+
+    }
+
+    // NORMAL USER
+    else{
+
+        document.getElementById("userSection").innerHTML = `
+
+        <div class="user-profile"
+        onclick="window.location.href='user-dashboard.html'">
+
+            <i class="fa-regular fa-user"></i>
+
+            <span>${loggedUser}</span>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+</script>
+<script>
+
+if(sessionStorage.getItem("splashShown")){
+
+    document.getElementById("splash").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+
+}
+else{
+
+    sessionStorage.setItem("splashShown", "true");
+
+    setTimeout(() => {
+
+        document.getElementById("splash").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+
+    }, 3000);
+
+}
+
+</script>
+</body>
+</html>

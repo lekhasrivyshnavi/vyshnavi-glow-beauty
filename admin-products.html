@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Products</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff7fb;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+
+    background:linear-gradient(180deg,#ff0080,#ff4da6);
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    padding:40px 28px;
+}
+
+.sidebar h2{
+    color:white;
+    font-size:36px;
+    margin-bottom:55px;
+    font-weight:bold;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:28px 0;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    transform:translateX(5px);
+}
+.menu-left{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.back-icon{
+
+    width:35px;
+    height:35px;
+
+    background:white;
+
+    color:#e60073;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+
+}
+/* MAIN */
+
+.main{
+    margin-left:260px;
+    padding:35px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    color:#e91e63;
+    font-size:55px;
+    font-weight:bold;
+}
+
+.admin-profile{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    background:#ff4f81;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+}
+
+/* PRODUCT GRID */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+.products-table{
+    width: 90%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.products-table th{
+    background: #ff007f;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.products-table td{
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 17px;
+}
+
+.products-table tr:hover{
+    background: #fff5f8;
+}
+
+.products-table img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+button{
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    background:#ff4f81;
+
+    color:white;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff2f6d;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.main{
+    margin-left:0;
+}
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+.topbar h1{
+    font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>GlowBeauty</h2>
+
+<ul>
+
+<li>
+<a href="admin-profile.html">
+<i class="fa-solid fa-house"></i>
+Profile
+</a>
+</li>
+
+<li>
+<a href="admin.html">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+    <a href="index.html">
+
+        <div class="menu-left">
+
+            <i class="fa fa-arrow-left back-icon"></i>
+
+            <i class="fa fa-home"></i>
+
+            Products
+
+        </div>
+
+    </a>
+</li>
+
+<li>
+<a href="admin-orders.html">
+<i class="fa-solid fa-cart-shopping"></i>
+Orders
+</a>
+</li>
+
+<li>
+<a href="admin-users.html">
+<i class="fa-solid fa-users"></i>
+Users
+</a>
+</li>
+
+<li>
+<a href="admin-analytics.html">
+<i class="fa-solid fa-chart-line"></i>
+Analytics
+</a>
+</li>
+
+<li>
+<a href="admin-stock.html">
+<i class="fa fa-boxes-stacked"></i>
+Stock
+</a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<h1>All Products</h1>
+
+<div class="admin-profile">
+<i class="fa-solid fa-user"></i>
+</div>
+
+</div>
+
+<div class="add-product">
+
+<input type="text" id="pbrand" placeholder="Brand">
+
+<input type="text" id="pname" placeholder="Product Name">
+
+<input type="text" id="pprice" placeholder="Price">
+
+<input type="text" id="pstock" placeholder="stock">
+
+<input type="text" id="pimage" placeholder="Image URL">
+
+<button onclick="addProduct()">
+Add Product
+</button>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<table class="products-table">
+
+    <thead>
+
+        <tr>
+            <th>Brand</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody id="productTable">
+
+    </tbody>
+
+</table>
+<script>
+async function deleteProduct(id){
+
+    let response = await fetch(
+    `http://localhost:3000/delete-product/${id}`,
+
+    {
+        method:"DELETE"
+    });
+
+    let data = await response.json();
+
+    alert(data.message);
+
+    location.reload();
+}
+</script>
+
+<script>
+
+fetch("http://localhost:3000/products")
+
+.then(response => response.json())
+
+.then(data => {
+
+    let table = document.getElementById("productTable");
+
+    table.innerHTML = "";
+
+    data.forEach(product => {
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${product.brand}</td>
+
+            <td>${product.product_name}</td>
+
+            <td>₹${product.price}</td>
+
+            <td>${product.stock}</td>
+
+            <td>
+                <img src="${product.image}" width="70">
+            </td>
+            <td>
+            <button onclick="deleteProduct(${product.id})">
+            Delete
+            </button>
+            </td>
+
+        </tr>
+
+        `;
+    });
+
+})
+
+.catch(error => console.log(error));
+
+</script>
+<script>
+
+async function loadProducts(){
+
+    let response = await fetch("http://localhost:3000/products");
+
+    let data = await response.json();
+
+    let table = document.getElementById("productTable");
+
+    table.innerHTML = "";
+
+    data.forEach(product => {
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${product.brand}</td>
+
+            <td>${product.product_name}</td>
+
+            <td>₹${product.price}</td>
+
+            <td>${product.stock}</td>
+
+            <td>
+                <img src="${product.image}" width="70">
+            </td>
+
+            <td>
+                <button onclick="deleteProduct(${product.id})">
+                Delete
+                </button>
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+loadProducts();
+
+</script>
+<script>
+
+async function addProduct(){
+
+    let brand = document.getElementById("pbrand").value;
+
+    let product_name = document.getElementById("pname").value;
+
+    let price = document.getElementById("pprice").value;
+
+    let stock = document.getElementById("pstock").value;
+
+    let image = document.getElementById("pimage").value;
+
+    await fetch("http://localhost:3000/add-product",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            brand,
+            product_name,
+            price,
+            stock,
+            image
+        })
+
+    });
+
+    loadProducts();
+
+}
+</script>
+</body>
+</html>

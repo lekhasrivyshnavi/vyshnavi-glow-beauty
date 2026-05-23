@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GlowBeauty Products</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#fff5f8;
+}
+
+/* HEADER */
+
+.topbar{
+    background:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#ff4f81;
+}
+
+.search{
+    width:300px;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:#f3f3f3;
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    padding:40px 20px 10px;
+}
+
+.title h1{
+    font-size:42px;
+    color:#ff4f81;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:gray;
+}
+
+/* PRODUCTS */
+
+.products{
+    padding:40px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h2{
+    margin:0;
+    font-size:24px;
+}
+
+.price{
+    color:#ff4f81;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.rating{
+    color:gold;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#ff4f81;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e63b6f;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<div class="topbar">
+
+    <div class="logo">
+        GlowBeauty
+    </div>
+
+    <input type="text"
+    placeholder="Search Products..."
+    class="search">
+
+</div>
+
+<!-- TITLE -->
+
+<div class="title">
+
+    <h1>All Products ✨</h1>
+
+    <p>Explore trending beauty essentials</p>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<div class="products">
+
+    <div class="card">
+
+        <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/foundation/p/s/8/-original-imah4fdb8cfvva7v.jpeg?q=90">
+
+        <div class="card-content">
+
+            <h2>Foundation</h2>
+
+            <div class="price">₹699</div>
+
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+            </div>
+
+            <button>Add To Cart</button>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <img src="https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/a/0/a0959c571249343326-z_1.jpg">
+
+        <div class="card-content">
+
+            <h2>Mascara</h2>
+
+            <div class="price">₹499</div>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+            <button>Add To Cart</button>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <img src="https://images-static.nykaa.com/media/catalog/product/e/c/ec0b4f28901012185032_2.jpg?tr=w-500">
+
+        <div class="card-content">
+
+            <h2>Sunscreen</h2>
+
+            <div class="price">₹349</div>
+
+            <div class="rating">
+                ★★★★☆
+            </div>
+
+            <button>Add To Cart</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
