@@ -14,8 +14,6 @@ app.use(express.json());
 
 // MYSQL CONNECTION
 
-const mysql = require("mysql2");
-
 const db = mysql.createConnection({
     host: process.env.MYSQLHOST,
     user: process.env.MYSQLUSER,
