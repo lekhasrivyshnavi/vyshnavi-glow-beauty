@@ -532,7 +532,11 @@ async function deleteAddress(id){
 
 }
 
-loadAddresses();
+try{
+    loadAddresses();
+}catch(error){
+    console.log(error);
+}
 
 </script>
 <script>
