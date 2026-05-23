@@ -472,7 +472,7 @@ app.post("/add-address",(req,res)=>{
     db.query(
         sql,
         [
-            Date.now(),
+            Math.floor(Math.random()* 100000),
             username,
             city,
             name,
