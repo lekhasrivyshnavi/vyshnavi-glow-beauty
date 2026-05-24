@@ -194,15 +194,17 @@ app.post("/add-product",(req,res)=>{
         image
     } = req.body;
 
+    let id = Math.floor(Math.random() * 1000000);
+
     let query = `
     INSERT INTO products
-    (brand,product_name,price,stock,image)
-    VALUES (?,?,?,?,?)
+    (id,brand,product_name,price,stock,image)
+    VALUES (?,?,?,?,?,?)
     `;
 
     db.query(
     query,
-    [brand,product_name,price,stock,image],
+    [id,brand,product_name,price,stock,image],
 
     (err,result)=>{
 
