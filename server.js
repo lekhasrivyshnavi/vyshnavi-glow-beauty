@@ -658,14 +658,16 @@ app.get("/orders/:username",(req,res)=>{
 app.post("/add-order",(req,res)=>{
 
     const {
-        username,
-        order_id,
-        order_date,
-        delivery_date,
-        status,
-        product_name,
-        price,
-        image
+       username,
+       order_id,
+       order_date,
+       delivery_date,
+       status,
+       product_name,
+       price,
+       image,
+       address,
+       payment_method
     } = req.body;
 
     const sql = `
@@ -718,21 +720,23 @@ app.post("/place-order",(req,res)=>{
         payment_method
     } = req.body;
 
+const id = Date.now();
     const sql = `
     INSERT INTO orders
-    (username,product_name,price,status,address,payment_method)
-    VALUES (?,?,?,?,?,?)
+    (id,username,product_name,price,status,address,payment_method)
+    VALUES (?,?,?,?,?,?,?)
     `;
 
     db.query(
     sql,
     [
-        username,
-        product_name,
-        price,
-        "Placed",
-        address,
-        payment_method
+    id,
+    username,
+    product_name,
+    price,
+    "Placed",
+    address,
+    payment_method
     ],
 
     (err,result)=>{
