@@ -670,21 +670,19 @@ app.post("/add-order",(req,res)=>{
 
     const sql = `
     INSERT INTO orders
-    (username,order_id,order_date,delivery_date,status,product_name,price,image)
-    VALUES (?,?,?,?,?,?,?,?)
+    (username,product_name,price,status,address,payment_method)
+    VALUES (?,?,?,?,?,?)
     `;
 
     db.query(
     sql,
     [
-        username,
-        order_id,
-        order_date,
-        delivery_date,
-        status,
-        product_name,
-        price,
-        image
+    username,
+    product_name,
+    price,
+    status,
+    address,
+    payment_method
     ],
 
     (err,result)=>{
