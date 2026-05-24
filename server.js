@@ -720,7 +720,7 @@ app.post("/place-order",(req,res)=>{
         payment_method
     } = req.body;
 
-const id = Date.now();
+const id = Math.floor(Math.random() * 1000000);
     const sql = `
     INSERT INTO orders
     (id,username,product_name,price,status,address,payment_method)
