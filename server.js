@@ -900,15 +900,18 @@ app.post("/create-admin",async(req,res)=>{
     const hashedPassword =
     await bcrypt.hash(password,10);
 
+    let id = Math.floor(Math.random() * 1000000);
+
     const sql = `
     INSERT INTO admins
-    (username,email,password)
-    VALUES (?,?,?)
+    (id,username,email,password)
+    VALUES (?,?,?,?)
     `;
 
     db.query(
     sql,
     [
+        id,
         username,
         email,
         hashedPassword
